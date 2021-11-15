@@ -26,28 +26,29 @@ function CalInput() {
     setIsShowBtn(false);
   };
 
-  const handleChangeInput = (e: any, selector: any, validSelector: any) => {
-    console.log(e)
-    if (e.target.value.length > 9) {
-      e.target.value = e.target.value.slice(0, 9);
+  const handleChangeInput = (e: React.FormEvent<HTMLInputElement>, selector: any, validSelector: any): void => {
+    let newValue = e.currentTarget.value;
+    if (newValue.length > 9) {
+      newValue = newValue.slice(0, 9);
     }
-    e.target.value = e.target.value.replace(
+    newValue = newValue.replace(
       /[a-zA-Z&/ \\#,+()$~%'`!@^_=":*?<>{}-]/g,
       ''
     );
-    selector(e.target.value);
+    selector(newValue);
     validSelector(false);
   };
 
-  const handleChangeInputTip = (e: any) => {
-    if (e.target.value.length > 4) {
-      e.target.value = e.target.value.slice(0, 4);
+  const handleChangeInputTip = (e: React.FormEvent<HTMLInputElement>) => {
+    let newValue = e.currentTarget.value;
+    if (newValue.length > 4) {
+      newValue = newValue.slice(0, 4);
     }
-    e.target.value = e.target.value.replace(
+    newValue = newValue.replace(
       /[a-zA-Z&/ \\#,+()$~%'`!@^_=":*?<>{}-]/g,
       ''
     );
-    setInputTip(e.target.value);
+    setInputTip(newValue);
   };
 
   const handleOnBlurInputBill = () => {

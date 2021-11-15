@@ -6,8 +6,8 @@ const App = () => {
   return (
     <DataProvider>
       <div className="App">
-          <Main />
-        </div>
+        <Main />
+      </div>
     </DataProvider>
   );
 }
